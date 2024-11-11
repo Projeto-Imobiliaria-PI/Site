@@ -1,0 +1,45 @@
+<form>
+  <h1>Alteração de Vendedor</h1>
+  <div class="dados" >
+    <mat-form-field class="nomeAluno">
+      <mat-label>Nome Completo</mat-label>
+      <input matInput size="60" [(ngModel)]="vendedor.nome" name="nome">
+    </mat-form-field>
+
+    <mat-form-field class="cpf">
+      <mat-label>CPF</mat-label>
+      <input matInput size="60" [(ngModel)]="vendedor.cpf" name="cpf">
+    </mat-form-field>
+
+    <mat-form-field class="area">
+      <mat-label>Área</mat-label>
+      <mat-select [(ngModel)]="vendedor.area" name="area">
+        <mat-option value="TI">TI</mat-option>
+        <mat-option value="Vendedor">Vendedor</mat-option>
+        <mat-option value="Corretor">Corretor</mat-option>
+        <mat-option value="Administrativo">Administrativo</mat-option>
+        <mat-option value="Captação">Captação</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field class="dataCadastro" appearance="fill">
+      <mat-label>Data de Cadastro</mat-label>
+      <input  [(ngModel)]="vendedor.dataAdmissao" name="dataAdmissao" matInput [matDatepicker]="dp3" >
+      <mat-datepicker-toggle matSuffix [for]="dp3"></mat-datepicker-toggle>
+      <mat-datepicker #dp3></mat-datepicker>
+    </mat-form-field>
+
+    <mat-form-field class="situacao">
+      <mat-label>Situação</mat-label>
+      <mat-select [(ngModel)]="vendedor.ativo" name="situacao">
+        <mat-option [value]="true">Ativo</mat-option>
+        <mat-option [value]="false">Inativo</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+
+  <div class="botoes">
+    <button (click)="atualizar()" mat-raised-button color="primary" name="botaoCadastrar">Atualizar</button>
+    <button (click)="cancelar()" mat-raised-button color="warn" name="botaoCancelar">Cancelar</button>
+  </div>
+</form>

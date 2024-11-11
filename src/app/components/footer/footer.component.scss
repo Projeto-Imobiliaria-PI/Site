@@ -1,0 +1,29 @@
+.footer {
+  background-color: #1f1f1f; // Cor de fundo do footer
+  color: #ffffff; // Cor do texto
+  display: flex;
+  justify-content: center; // Centraliza o conteúdo horizontalmente
+  align-items: center; // Centraliza o conteúdo verticalmente
+  padding: 20px;
+  font-family: Arial, sans-serif;
+  position: fixed; // Fixa o footer na tela
+  bottom: 0; // Alinha o footer na parte inferior
+  left: 0;
+  right: 0;
+  z-index: 1000; // Garante que o footer fique acima de outros elementos
+
+  h3 {
+    font-size: 1.2rem;
+    margin: 0;
+
+    a {
+      color: #ffcc00; // Cor do link
+      text-decoration: none;
+      transition: color 0.3s ease;
+
+      &:hover {
+        color: #ffa500; // Cor ao passar o mouse
+      }
+    }
+  }
+}

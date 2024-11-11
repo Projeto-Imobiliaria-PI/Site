@@ -1,0 +1,40 @@
+<div class="container">
+  <div class="header-buttons">
+    <div class="badge">
+      <button (click)="verInativos()" mat-raised-button color="warn" matBadge="{{inativo}}">
+        Vendedores Inativos
+      </button>
+    </div>
+    <mat-form-field class="pesquisarVendedor">
+      <mat-label>Nome</mat-label>
+      <input matInput size="60" name="pesquisa" [(ngModel)]="pesquisa" (ngModelChange)="filtrarVendedores()">
+      <mat-icon matSuffix>search</mat-icon>
+    </mat-form-field>
+    <button routerLink="cadastro" class="novo mat-elevation-z5" mat-raised-button color="primary">
+      Novo
+    </button>
+  </div>
+  <div class="conteudo" *ngFor="let item of vendedoresFiltrados">
+    <mat-card class="card mat-elevation-z3">
+      <mat-card-header>
+        <mat-card-title>{{ item.nome }}</mat-card-title>
+        <mat-card-subtitle>{{ item.cpf }}</mat-card-subtitle>
+        <mat-card-subtitle>{{ item.area }}</mat-card-subtitle>
+        <mat-card-subtitle>{{ item.dataAdmissao }}</mat-card-subtitle>
+        <mat-card-subtitle>{{ item.ativo }}</mat-card-subtitle>
+      </mat-card-header>
+
+      <div class="acoes">
+        <button (click)="inativar(item)" mat-mini-fab color="primary" id="gravar">
+          <mat-icon>done</mat-icon>
+        </button>
+        <button routerLink="atualizar/{{item.ra}}" mat-mini-fab color="accent" id="editar">
+          <mat-icon>edit</mat-icon>
+        </button>
+        <button (click)="apagar(item.ra)" mat-mini-fab color="warn" id="apagar">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </div>
+    </mat-card>
+  </div>
+</div>

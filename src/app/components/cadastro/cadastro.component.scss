@@ -1,0 +1,55 @@
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 20px;
+  background-color: #fafafa; // Fundo claro para o formulário
+
+  h1 {
+    font-size: 24px;
+    font-weight: bold;
+    color: #3f51b5;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+
+  .dados {
+    display: grid;
+    gap: 20px;
+    grid-template-columns: repeat(2, 1fr); // Para ter dois campos lado a lado
+
+    mat-form-field {
+      width: 100%;
+    }
+
+    .nomeAluno, .cpf, .area, .dataCadastro, .situacao {
+      // Aplica margens e ajustes específicos para cada campo, se necessário
+    }
+  }
+
+  .botoes {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+
+    button {
+      padding: 10px 20px;
+      font-weight: bold;
+      width: 48%; // Para que os botões fiquem na mesma linha e ocupem o espaço disponível
+
+      &:first-child {
+        background-color: #3f51b5;
+        color: white;
+      }
+
+      &:last-child {
+        background-color: #f44336;
+        color: white;
+      }
+
+      &:hover {
+        opacity: 0.8;
+      }
+    }
+  }
+}
