@@ -13,7 +13,7 @@ export class CadastroComponent implements OnInit {
     nome: '',
     cpf: '',
     area: '',
-    dataAdmissao: '',
+    dataAdmissao: new Date(),
     ativo: true
   }
 
@@ -22,11 +22,10 @@ export class CadastroComponent implements OnInit {
   ngOnInit(): void {
   }
   cancelar(): void {
-    this.router.navigate(['']);
+    this.router.navigate(['/read-all']);
   }
   formatarData(): void{
-    const options: Intl.DateTimeFormatOptions = {year: 'numeric', month: '2-digit', day: '2-digit'};
-    this.vendedor.dataAdmissao = new Date().toLocaleDateString('pt-BR', options);
+    let data = new Date(this.vendedor.dataAdmissao).toISOString();
   }
 
   cadastrar(): void {
@@ -34,7 +33,7 @@ export class CadastroComponent implements OnInit {
     this.servico.cadastrar(this.vendedor).subscribe(
       (resposta) => {
         this.servico.message('Vendedor cadastrado com sucesso!');
-        this.router.navigate(['']);
+        this.router.navigate(['/read-all']);
       },
       (err) => {
         this.servico.message('Erro ao cadastrar vendedor!');

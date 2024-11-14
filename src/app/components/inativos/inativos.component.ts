@@ -57,6 +57,6 @@ export class InativosComponent implements OnInit {
   }
 
   verAtivos(): void {
-    this.router.navigate(['']);
+    this.router.navigate(['read-all']);
   }
 }

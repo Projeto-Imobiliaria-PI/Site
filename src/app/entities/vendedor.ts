@@ -4,6 +4,6 @@ export interface Vendedor {
   nome: String,
   cpf: String,
   area: String,
-  dataAdmissao: String,
-  ativo: Boolean,
+  dataAdmissao: Date,
+  ativo: Boolean
 }

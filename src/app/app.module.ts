@@ -30,6 +30,7 @@ import { MatSelectModule} from "@angular/material/select";
 import {MatNativeDateModule} from "@angular/material/core";
 import { AtualizarComponent } from './components/atualizar/atualizar.component';
 import { LoginComponent } from './components/login/login.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -60,6 +61,8 @@ import { LoginComponent } from './components/login/login.component';
     MatDatepickerModule,
     MatSelectModule,
     MatNativeDateModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [
     provideClientHydration(),

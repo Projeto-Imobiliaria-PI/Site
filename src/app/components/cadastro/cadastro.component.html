@@ -24,8 +24,11 @@
 
     <mat-form-field class="dataCadastro" appearance="fill">
       <mat-label>Data de Cadastro</mat-label>
-      <input [(ngModel)]="vendedor.dataAdmissao " name="dataAdmissao" matInput [matDatepicker]="dp3">
-      <mat-datepicker-toggle matSuffix [for]="dp3"></mat-datepicker-toggle>
+      <input [(ngModel)]="vendedor.dataAdmissao" name="aluno.dataCadastro"
+             matInput [matDatepicker]="dp3" />
+
+      <mat-datepicker-toggle matSuffix [for]="dp3">
+      </mat-datepicker-toggle>
       <mat-datepicker #dp3></mat-datepicker>
     </mat-form-field>
 

@@ -10,8 +10,12 @@
       <input matInput size="60" name="pesquisa" [(ngModel)]="pesquisa" (ngModelChange)="filtrarVendedores()">
       <mat-icon matSuffix>search</mat-icon>
     </mat-form-field>
-    <button routerLink="cadastro" class="novo mat-elevation-z5" mat-raised-button color="primary">
+    <button routerLink="/cadastro" class="novo mat-elevation-z5" mat-raised-button color="primary">
       Novo
+    </button>
+    <!-- Botão de deslogar -->
+    <button (click)="logout()" class="novo mat-elevation-z5" mat-raised-button color="warn">
+      Deslogar
     </button>
   </div>
   <div class="conteudo" *ngFor="let item of vendedoresFiltrados">
@@ -28,7 +32,7 @@
         <button (click)="inativar(item)" mat-mini-fab color="primary" id="gravar">
           <mat-icon>done</mat-icon>
         </button>
-        <button routerLink="atualizar/{{item.ra}}" mat-mini-fab color="accent" id="editar">
+        <button routerLink="/atualizar/{{item.ra}}" mat-mini-fab color="accent" id="editar">
           <mat-icon>edit</mat-icon>
         </button>
         <button (click)="apagar(item.ra)" mat-mini-fab color="warn" id="apagar">

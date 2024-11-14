@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Vendedor } from "../../entities/vendedor";
 import { VendedorService } from "../../services/vendedor.service";
 import { Router } from "@angular/router";
+import { ChangeDetectorRef } from '@angular/core';  // Importar ChangeDetectorRef
 
 @Component({
   selector: 'app-read-all',
@@ -16,18 +17,14 @@ export class ReadAllComponent implements OnInit {
   pesquisa: string = '';
   vendedoresFiltrados: Vendedor[] = [];
 
-  constructor(private service: VendedorService, private router: Router) { }
+  constructor(private service: VendedorService, private router: Router, private cdr: ChangeDetectorRef) { }
 
   ngOnInit(): void {
     this.findAll();
   }
 
   contarAtivos(): void {
-    for (let vendedor of this.list) {
-      if (vendedor.ativo) {
-        this.ativo++;
-      }
-    }
+    this.ativo = this.list.filter(vendedor => vendedor.ativo).length;
   }
 
   findAll(): void {
@@ -41,7 +38,7 @@ export class ReadAllComponent implements OnInit {
           this.inativo++;
         }
       });
-      this.vendedoresFiltrados = [...this.list];
+      this.vendedoresFiltrados = [...this.list];  // Defina o estado inicial da lista filtrada
     });
   }
 
@@ -50,6 +47,7 @@ export class ReadAllComponent implements OnInit {
       if (resposta === null) {
         this.service.message('Vendedor apagado com sucesso!');
         this.list = this.list.filter(vendedor => vendedor.ra !== id);
+        this.vendedoresFiltrados = [...this.list];  // Atualizar lista filtrada
       } else {
         this.service.message('Erro ao apagar vendedor!');
       }
@@ -60,14 +58,21 @@ export class ReadAllComponent implements OnInit {
     item.ativo = false;
     this.service.atualizar(item).subscribe(() => {
       this.service.message('Vendedor inativado com sucesso!');
-      this.inativos = this.inativos.filter(vendedor => vendedor.ra !== item.ra);
-      this.inativo++;
-      this.ativo--;
+
+      // Atualize a lista de vendedores ativos removendo o vendedor inativado
+      this.list = this.list.filter(vendedor => vendedor.ra !== item.ra);
+      this.inativos.push(item);  // Adicionar o item na lista de inativos
+      this.ativo--;  // Decrease the active count
+      this.inativo++;  // Increase the inactive count
+
+      // Atualizar vendedores filtrados
+      this.vendedoresFiltrados = [...this.list];  // Refrescar a lista filtrada após a mudança
+      this.cdr.detectChanges();  // Forçar o Angular a detectar mudanças
     });
   }
 
   verInativos(): void {
-    this.router.navigate(['inativos']);
+    this.router.navigate(['/inativos']);
   }
 
   filtrarVendedores(): void {
@@ -78,5 +83,10 @@ export class ReadAllComponent implements OnInit {
         vendedor.nome.toLowerCase().includes(this.pesquisa.toLowerCase())
       );
     }
+  }
+
+  logout() {
+    localStorage.removeItem('token');
+    this.router.navigate(['/login']);
   }
 }

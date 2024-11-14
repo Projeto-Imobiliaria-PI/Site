@@ -13,7 +13,7 @@ export class AtualizarComponent implements OnInit {
     nome: '',
     cpf: '',
     area: '',
-    dataAdmissao: '',
+    dataAdmissao: new Date(),
     ativo: true,
   };
 
@@ -42,12 +42,11 @@ export class AtualizarComponent implements OnInit {
 
 
   cancelar(): void {
-    this.router.navigate(['']);
+    this.router.navigate(['/read-all']);
   }
 
   formatarData(): void {
-    const options: Intl.DateTimeFormatOptions = { year: 'numeric', month: '2-digit', day: '2-digit' };
-    this.vendedor.dataAdmissao = new Date().toLocaleDateString('pt-BR', options);
+    let data = new Date(this.vendedor.dataAdmissao).toISOString();
   }
 
   atualizar(): void {
@@ -55,7 +54,7 @@ export class AtualizarComponent implements OnInit {
     this.servico.atualizar(this.vendedor).subscribe(
       (resposta) => {
         this.servico.message('Dados do Vendedor atualizados com sucesso!');
-        this.router.navigate(['']);
+        this.router.navigate(['/read-all']);
       },
       (err) => {
         this.servico.message('Erro ao atualizar dados do vendedor!');
