@@ -1,9 +1,9 @@
-form {
+.formVendedorCadastro{
   display: flex;
   flex-direction: column;
   gap: 20px;
   padding: 20px;
-  background-color: #fafafa; // Fundo claro para o formulário
+  background-color: #fafafa;
 
   h1 {
     font-size: 24px;
@@ -16,34 +16,31 @@ form {
   .dados {
     display: grid;
     gap: 20px;
-    grid-template-columns: repeat(2, 1fr); // Para ter dois campos lado a lado
+    grid-template-columns: repeat(2, 1fr);
 
     mat-form-field {
       width: 100%;
     }
 
-    .nomeAluno, .cpf, .area, .dataCadastro, .situacao {
-      // Aplica margens e ajustes específicos para cada campo, se necessário
-    }
   }
 
   .botoes {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     margin-top: 20px;
 
     button {
       padding: 10px 20px;
       font-weight: bold;
-      width: 48%; // Para que os botões fiquem na mesma linha e ocupem o espaço disponível
+      width: 30%;
 
       &:first-child {
-        background-color: #3f51b5;
+        background-color: #f44336;
         color: white;
       }
 
       &:last-child {
-        background-color: #f44336;
+        background-color: #3f51b5;
         color: white;
       }
 
@@ -53,3 +50,4 @@ form {
     }
   }
 }
+

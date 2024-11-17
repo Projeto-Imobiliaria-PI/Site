@@ -5,10 +5,10 @@ import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-cadastro',
-  templateUrl: './cadastro.component.html',
-  styleUrl: './cadastro.component.scss'
+  templateUrl: './cadastro-vendedores.component.html',
+  styleUrl: './cadastro-vendedores.component.scss'
 })
-export class CadastroComponent implements OnInit {
+export class CadastroVendedoresComponent implements OnInit {
   vendedor: Vendedor = {
     nome: '',
     cpf: '',
@@ -28,7 +28,7 @@ export class CadastroComponent implements OnInit {
     let data = new Date(this.vendedor.dataAdmissao).toISOString();
   }
 
-  cadastrar(): void {
+  cadastrarVendedor(): void {
     this.formatarData();
     this.servico.cadastrar(this.vendedor).subscribe(
       (resposta) => {

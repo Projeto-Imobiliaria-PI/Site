@@ -5,10 +5,10 @@ import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-atualizar',
-  templateUrl: './atualizar.component.html',
-  styleUrls: ['./atualizar.component.scss']
+  templateUrl: './atualizar-vendedores.component.html',
+  styleUrls: ['./atualizar-vendedores.component.scss']
 })
-export class AtualizarComponent implements OnInit {
+export class AtualizarVendedoresComponent implements OnInit {
   vendedor: Vendedor = {
     nome: '',
     cpf: '',

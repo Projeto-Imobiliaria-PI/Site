@@ -1,5 +1,5 @@
 import {Injectable} from "@angular/core";
-import {environment} from "../environments/environment";
+import {vendedorEnvironment} from "../environments/vendedorEnvironment";
 import {HttpClient} from "@angular/common/http";
 import {Vendedor} from "../entities/vendedor";
 import {Observable} from "rxjs";
@@ -10,7 +10,7 @@ import {MatSnackBar} from "@angular/material/snack-bar";
   providedIn: 'root'
 })
 export class VendedorService {
-  baseUrl = environment.baseUrl;
+  baseUrl = vendedorEnvironment.baseUrl;
   constructor(private http: HttpClient, private snack: MatSnackBar) {
 
   }

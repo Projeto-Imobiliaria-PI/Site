@@ -25,12 +25,14 @@ import {MatBadgeModule} from '@angular/material/badge';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatInputModule} from "@angular/material/input";
 import {MatDatepickerModule} from '@angular/material/datepicker';
-import { CadastroComponent } from './components/cadastro/cadastro.component';
+import { CadastroVendedoresComponent } from './components/cadastro-vendedores/cadastro-vendedores.component';
 import { MatSelectModule} from "@angular/material/select";
 import {MatNativeDateModule} from "@angular/material/core";
-import { AtualizarComponent } from './components/atualizar/atualizar.component';
+import { AtualizarVendedoresComponent } from './components/atualizar-vendedores/atualizar-vendedores.component';
 import { LoginComponent } from './components/login/login.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { CadastroImoveisComponent } from './components/cadastro-imoveis/cadastro-imoveis.component';
+import { AtualizarImoveisComponent } from './components/atualizar-imoveis/atualizar-imoveis.component';
 
 
 
@@ -41,9 +43,11 @@ import { ReactiveFormsModule } from '@angular/forms';
     FooterComponent,
     ReadAllComponent,
     InativosComponent,
-    CadastroComponent,
-    AtualizarComponent,
-    LoginComponent
+    CadastroVendedoresComponent,
+    AtualizarVendedoresComponent,
+    LoginComponent,
+    CadastroImoveisComponent,
+    AtualizarImoveisComponent
   ],
   imports: [
     BrowserModule,

@@ -2,10 +2,14 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { InativosComponent } from "./components/inativos/inativos.component";
 import { ReadAllComponent } from "./components/read-all/read-all.component";
-import { CadastroComponent } from "./components/cadastro/cadastro.component";
-import { AtualizarComponent } from "./components/atualizar/atualizar.component";
+import { CadastroVendedoresComponent } from "./components/cadastro-vendedores/cadastro-vendedores.component";
+import { AtualizarVendedoresComponent } from "./components/atualizar-vendedores/atualizar-vendedores.component";
+import {CadastroImoveisComponent} from "./components/cadastro-imoveis/cadastro-imoveis.component";
+import { AtualizarImoveisComponent } from "./components/atualizar-imoveis/atualizar-imoveis.component";
+
+
 import { LoginComponent } from "./components/login/login.component";
-import { AuthGuard } from './guards/auth.guard';  // Importando o AuthGuard
+import { AuthGuard } from './guards/auth.guard';
 
 const routes: Routes = [
   {
@@ -19,26 +23,36 @@ const routes: Routes = [
   {
     path: 'read-all',
     component: ReadAllComponent,
-    canActivate: [AuthGuard] // Protege a rota
+    canActivate: [AuthGuard]
   },
   {
     path: 'inativos',
     component: InativosComponent,
-    canActivate: [AuthGuard] // Protege a rota
+    canActivate: [AuthGuard]
   },
   {
-    path: 'cadastro',
-    component: CadastroComponent,
-    canActivate: [AuthGuard] // Protege a rota
+    path: 'cadastroVendedor',
+    component: CadastroVendedoresComponent,
+    canActivate: [AuthGuard]
   },
   {
-    path: 'atualizar/:id',
-    component: AtualizarComponent,
-    canActivate: [AuthGuard] // Protege a rota
+    path: 'atualizarVendedor/:id',
+    component: AtualizarVendedoresComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'cadastroImovel',
+    component: CadastroImoveisComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'atualizarImovel/:id',
+    component: AtualizarImoveisComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: '**',
-    component: LoginComponent // Redireciona qualquer rota desconhecida para o login
+    component: LoginComponent
   }
 ];
 

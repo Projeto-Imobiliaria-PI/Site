@@ -1,4 +1,4 @@
-<form>
+<form class="formVendedorCadastro">
   <h1>Cadastro de Vendedor</h1>
   <div class="dados">
     <mat-form-field class="nomeAluno">
@@ -42,7 +42,8 @@
   </div>
 
   <div class="botoes">
-    <button (click)="cadastrar()" mat-raised-button color="primary" name="botaoCadastrar">Gravar</button>
     <button (click)="cancelar()" mat-raised-button color="warn" name="botaoCancelar">Cancelar</button>
+    <button (click)="cadastrarVendedor()" mat-raised-button color="primary" name="botaoCadastrar">Gravar</button>
+
   </div>
 </form>
