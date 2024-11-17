@@ -7,9 +7,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import { FooterComponent } from './components/footer/footer.component';
-import { ReadAllComponent } from './components/read-all/read-all.component';
 import {HttpClientModule} from "@angular/common/http";
-import { InativosComponent } from './components/inativos/inativos.component';
 import {FormsModule} from "@angular/forms";
 import {LOCALE_ID} from "@angular/core";
 import {registerLocaleData} from "@angular/common";
@@ -33,6 +31,11 @@ import { LoginComponent } from './components/login/login.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { CadastroImoveisComponent } from './components/cadastro-imoveis/cadastro-imoveis.component';
 import { AtualizarImoveisComponent } from './components/atualizar-imoveis/atualizar-imoveis.component';
+import { VisualizarVendedoresComponent } from './components/visualizar-vendedores/visualizar-vendedores.component';
+import { HomeComponent } from './components/home/home.component';
+import { VisualizarImoveisComponent } from './components/visualizar-imoveis/visualizar-imoveis.component';
+import { VisualizarVendedoresInativosComponent } from './components/visualizar-vendedores-inativos/visualizar-vendedores-inativos.component';
+import { VisualizarImoveisInativosComponent } from './components/visualizar-imoveis-inativos/visualizar-imoveis-inativos.component';
 
 
 
@@ -41,13 +44,16 @@ import { AtualizarImoveisComponent } from './components/atualizar-imoveis/atuali
     AppComponent,
     HeaderComponent,
     FooterComponent,
-    ReadAllComponent,
-    InativosComponent,
     CadastroVendedoresComponent,
     AtualizarVendedoresComponent,
     LoginComponent,
     CadastroImoveisComponent,
-    AtualizarImoveisComponent
+    AtualizarImoveisComponent,
+    VisualizarVendedoresComponent,
+    HomeComponent,
+    VisualizarImoveisComponent,
+    VisualizarVendedoresInativosComponent,
+    VisualizarImoveisInativosComponent
   ],
   imports: [
     BrowserModule,

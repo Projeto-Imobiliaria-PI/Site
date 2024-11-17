@@ -1,15 +1,14 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { Vendedor } from "../../entities/vendedor";
 import { VendedorService } from "../../services/vendedor.service";
 import { Router } from "@angular/router";
-import { ChangeDetectorRef } from '@angular/core';  // Importar ChangeDetectorRef
 
 @Component({
-  selector: 'app-read-all',
-  templateUrl: './read-all.component.html',
-  styleUrls: ['./read-all.component.scss']
+  selector: 'app-visualizar-vendedores',
+  templateUrl: './visualizar-vendedores.component.html',
+  styleUrl: './visualizar-vendedores.component.scss'
 })
-export class ReadAllComponent implements OnInit {
+export class VisualizarVendedoresComponent implements OnInit {
   ativo = 0;
   inativo = 0;
   list: Vendedor[] = [];
@@ -38,7 +37,7 @@ export class ReadAllComponent implements OnInit {
           this.inativo++;
         }
       });
-      this.vendedoresFiltrados = [...this.list];  // Defina o estado inicial da lista filtrada
+      this.vendedoresFiltrados = [...this.list];
     });
   }
 
@@ -47,7 +46,7 @@ export class ReadAllComponent implements OnInit {
       if (resposta === null) {
         this.service.message('Vendedor apagado com sucesso!');
         this.list = this.list.filter(vendedor => vendedor.ra !== id);
-        this.vendedoresFiltrados = [...this.list];  // Atualizar lista filtrada
+        this.vendedoresFiltrados = [...this.list];
       } else {
         this.service.message('Erro ao apagar vendedor!');
       }
@@ -59,20 +58,18 @@ export class ReadAllComponent implements OnInit {
     this.service.atualizar(item).subscribe(() => {
       this.service.message('Vendedor inativado com sucesso!');
 
-      // Atualize a lista de vendedores ativos removendo o vendedor inativado
       this.list = this.list.filter(vendedor => vendedor.ra !== item.ra);
-      this.inativos.push(item);  // Adicionar o item na lista de inativos
-      this.ativo--;  // Decrease the active count
-      this.inativo++;  // Increase the inactive count
+      this.inativos.push(item);
+      this.ativo--;
+      this.inativo++;
 
-      // Atualizar vendedores filtrados
-      this.vendedoresFiltrados = [...this.list];  // Refrescar a lista filtrada após a mudança
-      this.cdr.detectChanges();  // Forçar o Angular a detectar mudanças
+      this.vendedoresFiltrados = [...this.list];
+      this.cdr.detectChanges();
     });
   }
 
   verInativos(): void {
-    this.router.navigate(['/inativos']);
+    this.router.navigate(['/vendedorInativo']);
   }
 
   filtrarVendedores(): void {

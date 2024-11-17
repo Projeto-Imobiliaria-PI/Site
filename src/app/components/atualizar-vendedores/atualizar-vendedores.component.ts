@@ -42,7 +42,7 @@ export class AtualizarVendedoresComponent implements OnInit {
 
 
   cancelar(): void {
-    this.router.navigate(['/read-all']);
+    this.router.navigate(['/visualizarVendedor']);
   }
 
   formatarData(): void {
@@ -54,7 +54,7 @@ export class AtualizarVendedoresComponent implements OnInit {
     this.servico.atualizar(this.vendedor).subscribe(
       (resposta) => {
         this.servico.message('Dados do Vendedor atualizados com sucesso!');
-        this.router.navigate(['/read-all']);
+        this.router.navigate(['/visualizarVendedor']);
       },
       (err) => {
         this.servico.message('Erro ao atualizar dados do vendedor!');

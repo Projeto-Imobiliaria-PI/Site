@@ -26,9 +26,8 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    // Verifica se o código está sendo executado no cliente
     if (typeof window !== 'undefined' && localStorage.getItem('token')) {
-      this.router.navigate(['/read-all']); // Se o token existir, redireciona para a página principal
+      this.router.navigate(['/home']);
     }
   }
 
@@ -39,11 +38,10 @@ export class LoginComponent implements OnInit {
       this.http.post<{ token: string }>('http://localhost:8080/auth/login', loginData)
         .subscribe(
           response => {
-            localStorage.setItem('token', response.token);  // Armazena o token no localStorage
+            localStorage.setItem('token', response.token);
             this.snackBar.open('Login realizado com sucesso!', 'Fechar', { duration: 2000 });
 
-            // Após o login bem-sucedido, redireciona para a página 'read-all'
-            this.router.navigate(['/read-all']);
+            this.router.navigate(['/home']);
           },
           error => {
             this.snackBar.open('Erro ao realizar login. Tente novamente.', 'Fechar', { duration: 2000 });

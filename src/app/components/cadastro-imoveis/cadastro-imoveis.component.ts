@@ -10,7 +10,6 @@ import { Router } from "@angular/router";
 })
 export class CadastroImoveisComponent {
 
-  // Definindo o modelo diretamente
   imovel: Imovel = {
     logradouro: '',
     numero: '',
@@ -27,7 +26,6 @@ export class CadastroImoveisComponent {
   constructor(private router: Router, private servico: ImovelService) {}
 
   limparFormulario(): void {
-    // Limpa os campos do imóvel
     this.imovel = {
       logradouro: '',
       numero: '',
@@ -70,12 +68,10 @@ export class CadastroImoveisComponent {
   }
 
   cadastrarImovel(): void {
-    // Usa diretamente o objeto imovel
     this.servico.cadastrar(this.imovel).subscribe({
       next: (response) => {
         this.servico.message('Imóvel cadastrado com sucesso!');
-        // Redireciona ou faz o que for necessário após o cadastro
-        // this.router.navigate(['/read-all']);
+        this.router.navigate(['/visualizarImovel']);
       },
       error: (err) => {
         this.servico.message('Erro ao cadastrar imóvel!');
@@ -84,6 +80,6 @@ export class CadastroImoveisComponent {
   }
 
   cancelar(): void {
-    this.router.navigate(['/read-all']);
+    this.router.navigate(['/visualizarImovel']);
   }
 }

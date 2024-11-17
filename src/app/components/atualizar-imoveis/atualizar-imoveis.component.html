@@ -1,1 +1,74 @@
-<p>atualizar-imoveis works!</p>
+<form class="formImovelCadastro">
+  <h1>Cadastro de Imóvel</h1>
+
+  <div class="dados">
+    <mat-form-field class="cep">
+      <mat-label>CEP</mat-label>
+      <input
+        matInput
+        type="text"
+        maxlength="9"
+        placeholder="Digite o CEP"
+        (blur)="buscarCep()"
+        [(ngModel)]="imovel.cep"
+        name="cep"
+      />
+    </mat-form-field>
+
+    <mat-form-field class="logradouro">
+      <mat-label>Logradouro</mat-label>
+      <input [(ngModel)]="imovel.logradouro" matInput type="text" name="logradouro" [readonly]="true"/>
+    </mat-form-field>
+
+    <mat-form-field class="bairro">
+      <mat-label>Bairro</mat-label>
+      <input [(ngModel)]="imovel.bairro" matInput type="text" name="bairro" [readonly]="true"/>
+    </mat-form-field>
+
+    <mat-form-field class="cidade">
+      <mat-label>Cidade</mat-label>
+      <input [(ngModel)]="imovel.cidade" matInput type="text" name="cidade" [readonly]="true"/>
+    </mat-form-field>
+
+    <mat-form-field class="uf">
+      <mat-label>Uf</mat-label>
+      <input [(ngModel)]="imovel.uf" matInput type="text" name="uf" [readonly]="true"/>
+    </mat-form-field>
+
+    <mat-form-field class="numero">
+      <mat-label>Número</mat-label>
+      <input [(ngModel)]="imovel.numero" matInput type="text" name="numero"/>
+    </mat-form-field>
+
+    <mat-form-field class="tipo">
+      <mat-label>Tipo</mat-label>
+      <mat-select [(ngModel)]="imovel.tipo" name="tipo">
+        <mat-option value="Casa">Casa</mat-option>
+        <mat-option value="Apartamento">Apartamento</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field class="descricao">
+      <mat-label>Descrição</mat-label>
+      <input [(ngModel)]="imovel.descricao" matInput type="text" name="descricao" />
+    </mat-form-field>
+
+    <mat-form-field class="valor">
+      <mat-label>Valor</mat-label>
+      <input [(ngModel)]="imovel.valor" matInput type="number" name="valor"/>
+    </mat-form-field>
+
+    <mat-form-field class="disponivel">
+      <mat-label>Disponibilidade</mat-label>
+      <mat-select [(ngModel)]="imovel.disponivel" name="disponivel">
+        <mat-option [value]="true">Disponível</mat-option>
+        <mat-option [value]="false">Indisponível</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+
+  <div class="botoes">
+    <button (click)="atualizar()" mat-raised-button color="primary" name="botaoCadastrar">Atualizar</button>
+    <button (click)="cancelar()" mat-raised-button color="warn" name="botaoCancelar">Cancelar</button>
+  </div>
+</form>

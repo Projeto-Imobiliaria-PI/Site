@@ -1,7 +1,5 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { InativosComponent } from "./components/inativos/inativos.component";
-import { ReadAllComponent } from "./components/read-all/read-all.component";
 import { CadastroVendedoresComponent } from "./components/cadastro-vendedores/cadastro-vendedores.component";
 import { AtualizarVendedoresComponent } from "./components/atualizar-vendedores/atualizar-vendedores.component";
 import {CadastroImoveisComponent} from "./components/cadastro-imoveis/cadastro-imoveis.component";
@@ -10,6 +8,15 @@ import { AtualizarImoveisComponent } from "./components/atualizar-imoveis/atuali
 
 import { LoginComponent } from "./components/login/login.component";
 import { AuthGuard } from './guards/auth.guard';
+import {VisualizarVendedoresComponent} from "./components/visualizar-vendedores/visualizar-vendedores.component";
+import {VisualizarImoveisComponent} from "./components/visualizar-imoveis/visualizar-imoveis.component";
+import {
+  VisualizarVendedoresInativosComponent
+} from "./components/visualizar-vendedores-inativos/visualizar-vendedores-inativos.component";
+import {
+  VisualizarImoveisInativosComponent
+} from "./components/visualizar-imoveis-inativos/visualizar-imoveis-inativos.component";
+import {HomeComponent} from "./components/home/home.component";
 
 const routes: Routes = [
   {
@@ -21,13 +28,28 @@ const routes: Routes = [
     component: LoginComponent
   },
   {
-    path: 'read-all',
-    component: ReadAllComponent,
+    path: 'home',
+    component: HomeComponent,
     canActivate: [AuthGuard]
   },
   {
-    path: 'inativos',
-    component: InativosComponent,
+    path: 'visualizarVendedor',
+    component: VisualizarVendedoresComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'visualizarImovel',
+    component: VisualizarImoveisComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'vendedorInativo',
+    component: VisualizarVendedoresInativosComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'imovelInativo',
+    component: VisualizarImoveisInativosComponent,
     canActivate: [AuthGuard]
   },
   {

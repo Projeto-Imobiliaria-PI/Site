@@ -22,7 +22,7 @@ export class CadastroVendedoresComponent implements OnInit {
   ngOnInit(): void {
   }
   cancelar(): void {
-    this.router.navigate(['/read-all']);
+    this.router.navigate(['/visualizarVendedor']);
   }
   formatarData(): void{
     let data = new Date(this.vendedor.dataAdmissao).toISOString();
@@ -33,7 +33,7 @@ export class CadastroVendedoresComponent implements OnInit {
     this.servico.cadastrar(this.vendedor).subscribe(
       (resposta) => {
         this.servico.message('Vendedor cadastrado com sucesso!');
-        this.router.navigate(['/read-all']);
+        this.router.navigate(['/visualizarVendedor']);
       },
       (err) => {
         this.servico.message('Erro ao cadastrar vendedor!');

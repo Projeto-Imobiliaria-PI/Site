@@ -1,0 +1,34 @@
+<div class="container">
+  <div class="header-buttons">
+    <button routerLink="/home" class="novo mat-elevation-z5" mat-raised-button color="primary">
+      Voltar
+    </button>
+    <div class="badge">
+      <button (click)="verAtivos()"
+              mat-raised-button color="warn">Retornar</button>
+    </div>
+    </div>
+    <div class="conteudo" *ngFor="let item of inativos">
+      <mat-card class="card mat-elevation-z3">
+        <mat-card-header>
+          <mat-card-title>{{ item.logradouro + ", " + item.numero}}</mat-card-title>
+          <mat-card-subtitle>{{ item.bairro }}</mat-card-subtitle>
+          <mat-card-subtitle>{{ item.cidade }}</mat-card-subtitle>
+          <mat-card-subtitle>{{ item.valor }}</mat-card-subtitle>
+          <mat-card-subtitle>{{ item.disponivel ? 'Disponível' : 'Indisponível' }}</mat-card-subtitle>
+        </mat-card-header>
+
+        <div class="acoes">
+          <button (click)="ativar(item)" mat-mini-fab color="primary" id="gravar">
+            <mat-icon>done</mat-icon>
+          </button>
+          <button routerLink="/atualizarImovel/{{item.id}}" mat-mini-fab color="accent" id="editar">
+            <mat-icon>edit</mat-icon>
+          </button>
+          <button (click)="apagar(item.id)" mat-mini-fab color="warn" id="apagar">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </div>
+      </mat-card>
+  </div>
+</div>

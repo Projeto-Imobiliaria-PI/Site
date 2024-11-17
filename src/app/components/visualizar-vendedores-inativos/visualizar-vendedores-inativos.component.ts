@@ -1,15 +1,14 @@
 import {Component, OnInit} from '@angular/core';
 import {Vendedor} from "../../entities/vendedor";
 import {VendedorService} from "../../services/vendedor.service";
-import { Router } from '@angular/router';
-
+import {Router} from "@angular/router";
 
 @Component({
-  selector: 'app-inativos',
-  templateUrl: './inativos.component.html',
-  styleUrl: './inativos.component.scss'
+  selector: 'app-visualizar-vendedores-inativos',
+  templateUrl: './visualizar-vendedores-inativos.component.html',
+  styleUrl: './visualizar-vendedores-inativos.component.scss'
 })
-export class InativosComponent implements OnInit {
+export class VisualizarVendedoresInativosComponent implements OnInit {
   ativos: Vendedor[] = [];
   inativos: Vendedor[] = [];
   list: Vendedor[] = []
@@ -57,6 +56,6 @@ export class InativosComponent implements OnInit {
   }
 
   verAtivos(): void {
-    this.router.navigate(['read-all']);
+    this.router.navigate(['/visualizarVendedor']);
   }
 }

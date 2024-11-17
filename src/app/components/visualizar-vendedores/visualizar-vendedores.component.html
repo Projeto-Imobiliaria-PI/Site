@@ -1,5 +1,8 @@
 <div class="container">
   <div class="header-buttons">
+    <button routerLink="/home" class="novo mat-elevation-z5" mat-raised-button color="primary">
+      Voltar
+    </button>
     <div class="badge">
       <button (click)="verInativos()" mat-raised-button color="warn" matBadge="{{inativo}}">
         Vendedores Inativos
@@ -11,10 +14,7 @@
       <mat-icon matSuffix>search</mat-icon>
     </mat-form-field>
     <button routerLink="/cadastroVendedor" class="novo mat-elevation-z5" mat-raised-button color="primary">
-      Novo
-    </button>
-    <button routerLink="/cadastroImovel" class="novo mat-elevation-z5" mat-raised-button color="primary">
-      Novo Imovel
+      Novo Funcionário
     </button>
 
   </div>
@@ -25,7 +25,7 @@
         <mat-card-subtitle>{{ item.cpf }}</mat-card-subtitle>
         <mat-card-subtitle>{{ item.area }}</mat-card-subtitle>
         <mat-card-subtitle>{{ item.dataAdmissao }}</mat-card-subtitle>
-        <mat-card-subtitle>{{ item.ativo }}</mat-card-subtitle>
+        <mat-card-subtitle>{{ item.ativo ? 'ativo': 'inativo' }}</mat-card-subtitle>
       </mat-card-header>
 
       <div class="acoes">
