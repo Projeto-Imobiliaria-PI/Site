@@ -14,6 +14,8 @@ export class VisualizarVendedoresInativosComponent implements OnInit {
   list: Vendedor[] = []
   ativo = 0;
   inativo = 0;
+  pesquisa: string = '';
+  vendedoresFiltrados: Vendedor[] = [];
   constructor(private service: VendedorService,
               private router: Router) { }
   ngOnInit(): void {
@@ -53,6 +55,16 @@ export class VisualizarVendedoresInativosComponent implements OnInit {
         this.service.message('Erro ao apagar vendedor!')
       }
     })
+  }
+
+  filtrarVendedores(): void {
+    if (this.pesquisa.trim() === '') {
+      this.vendedoresFiltrados = [...this.list];
+    } else {
+      this.vendedoresFiltrados = this.list.filter(vendedor =>
+        vendedor.nome.toLowerCase().includes(this.pesquisa.toLowerCase())
+      );
+    }
   }
 
   verAtivos(): void {

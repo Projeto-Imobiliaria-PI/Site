@@ -58,6 +58,16 @@ export class VisualizarImoveisInativosComponent implements OnInit {
     })
   }
 
+  filtrarImoveis(): void {
+    if (this.pesquisa.trim() === '') {
+      this.imoveisFiltrados = [...this.list];
+    } else {
+      this.imoveisFiltrados = this.list.filter(imovel =>
+        imovel.logradouro.toLowerCase().includes(this.pesquisa.toLowerCase())
+      );
+    }
+  }
+
   verAtivos(): void {
     this.router.navigate(['/visualizarImovel']);
   }

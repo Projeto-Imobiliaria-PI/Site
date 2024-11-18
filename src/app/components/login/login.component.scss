@@ -1,46 +1,117 @@
+// Definindo uma paleta de cores para manter o design consistente
+$primary-color: #6200ea;
+$secondary-color: #03dac5;
+$background-color: #f5f5f5;
+$card-background: #ffffff;
+$text-color: #333;
+$border-color: #ddd;
+$hover-color: #3700b3;
+
+// Container principal de login
 .login-container {
+  width: 100%;
   max-width: 400px;
-  margin: 0 auto;
+  margin: 50px auto;
   padding: 20px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
+  background-color: $card-background;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   text-align: center;
 
   h2 {
+    color: $primary-color;
+    font-size: 2rem;
     margin-bottom: 20px;
   }
 
+  // Estilo do formulário
   form {
     display: flex;
     flex-direction: column;
+    gap: 20px;
 
-    div {
-      margin-bottom: 15px;
-    }
-
-    label {
-      margin-bottom: 5px;
-      font-weight: bold;
-    }
-
-    input {
-      padding: 8px;
+    // Campo de input do material
+    mat-form-field {
       width: 100%;
-      box-sizing: border-box;
-    }
-
-    button {
-      padding: 10px;
-      background-color: #007bff;
-      color: white;
-      border: none;
-      cursor: pointer;
+      background-color: $background-color;
       border-radius: 4px;
-      transition: background-color 0.3s ease;
+      padding: 8px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
 
-      &:hover {
-        background-color: #0056b3;
+      // Ajuste nos campos internos
+      .mat-form-field-infix {
+        background-color: $card-background;
+        border-radius: 4px;
+        padding: 8px;
+      }
+
+      .mat-label {
+        font-size: 1rem;
+        color: $text-color;
+      }
+
+      input {
+        padding: 10px 12px;
+        font-size: 1rem;
+        border: 1px solid $border-color;
+        border-radius: 4px;
+        width: 100%;
+        box-sizing: border-box;
+        transition: border-color 0.3s ease;
+
+        &:focus {
+          border-color: $primary-color;
+        }
+
+        // Ajustando o texto de entrada para não sair do campo
+        &::placeholder {
+          color: $text-color;
+        }
       }
     }
+
+    // Botão
+    .botoes {
+      display: flex;
+      justify-content: center;
+
+      button {
+        width: 100%;
+        padding: 12px 16px;
+        background-color: $primary-color;
+        color: #fff;
+        font-size: 1rem;
+        border-radius: 8px;
+        border: none;
+        transition: background-color 0.3s ease;
+
+        &:hover {
+          background-color: $hover-color;
+        }
+
+        &:disabled {
+          background-color: $border-color;
+          cursor: not-allowed;
+        }
+      }
+    }
+  }
+}
+
+// Responsividade para telas menores
+@media (max-width: 600px) {
+  .login-container {
+    padding: 15px;
+    width: 90%;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+  }
+
+  form {
+    gap: 15px;
   }
 }

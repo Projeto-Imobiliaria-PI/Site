@@ -3,21 +3,24 @@
     <button routerLink="/home" class="novo mat-elevation-z5" mat-raised-button color="primary">
       Voltar
     </button>
-    <div class="badge">
-      <button (click)="verInativos()" mat-raised-button color="warn" matBadge="{{inativo}}">
-        Vendedores Inativos
-      </button>
-    </div>
     <mat-form-field class="pesquisarVendedor">
       <mat-label>Nome</mat-label>
       <input matInput size="60" name="pesquisa" [(ngModel)]="pesquisa" (ngModelChange)="filtrarVendedores()">
       <mat-icon matSuffix>search</mat-icon>
     </mat-form-field>
-    <button routerLink="/cadastroVendedor" class="novo mat-elevation-z5" mat-raised-button color="primary">
-      Novo Funcionário
-    </button>
+
+    <div class="badge">
+      <button (click)="verInativos()" mat-raised-button color="warn" matBadge="{{inativo}}">
+        Vendedores Inativos
+      </button>
+    </div>
+
+
 
   </div>
+  <button routerLink="/cadastroVendedor" class="novo mat-elevation-z5" mat-raised-button color="primary">
+    <mat-icon>add</mat-icon>
+  </button>
   <div class="conteudo" *ngFor="let item of vendedoresFiltrados">
     <mat-card class="card mat-elevation-z3">
       <mat-card-header>

@@ -3,6 +3,12 @@
     <button routerLink="/home" class="novo mat-elevation-z5" mat-raised-button color="primary">
       Voltar
     </button>
+
+    <mat-form-field class="pesquisarVendedor">
+      <mat-label>Nome</mat-label>
+      <input matInput size="60" name="pesquisa" [(ngModel)]="pesquisa" (ngModelChange)="filtrarVendedores()">
+      <mat-icon matSuffix>search</mat-icon>
+    </mat-form-field>
     <div class="badge">
       <button (click)="verAtivos()"
               mat-raised-button color="warn">Retornar</button>

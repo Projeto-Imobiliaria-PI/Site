@@ -1,25 +1,65 @@
-div {
+/* Estilos gerais para a home-container */
+.home-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 70vh;
+  background-color: #f4f4f4;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+/* Estilo para o título */
+.title {
+  font-size: 2.5rem;
+  color: #333;
+  margin-bottom: 30px;
   text-align: center;
-  margin-top: 50px;
+  font-weight: bold;
+}
 
-  h1 {
-    font-size: 2.5rem;
-    color: #333;
-  }
+/* Contêiner para os botões */
+.button-container {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+}
 
-  button {
-    margin: 10px;
-    padding: 10px 20px;
-    font-size: 1rem;
-    color: #fff;
-    background-color: #007bff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
+/* Estilo para os botões */
+.btn {
+  padding: 12px 24px;
+  font-size: 1.1rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
 
-    &:hover {
-      background-color: #0056b3;
-    }
-  }
+/* Botão primário */
+.btn-primary {
+  background-color: #007bff;
+  color: white;
+}
+
+/* Botão secundário */
+.btn-secondary {
+  background-color: #6c757d;
+  color: white;
+}
+
+/* Efeito ao passar o mouse sobre os botões */
+.btn:hover {
+  transform: translateY(-3px);
+}
+
+/* Efeito ao passar o mouse sobre o botão primário */
+.btn-primary:hover {
+  background-color: #0056b3;
+}
+
+/* Efeito ao passar o mouse sobre o botão secundário */
+.btn-secondary:hover {
+  background-color: #5a6268;
 }
