@@ -67,7 +67,52 @@ export class CadastroImoveisComponent {
     }
   }
 
+  // Função para validar campos obrigatórios
+  validarCampos(): boolean {
+    if (!this.imovel.logradouro) {
+      this.servico.message('Logradouro é obrigatório!');
+      return false;
+    }
+    if (!this.imovel.numero) {
+      this.servico.message('Número é obrigatório!');
+      return false;
+    }
+    if (!this.imovel.bairro) {
+      this.servico.message('Bairro é obrigatório!');
+      return false;
+    }
+    if (!this.imovel.cidade) {
+      this.servico.message('Cidade é obrigatória!');
+      return false;
+    }
+    if (!this.imovel.uf) {
+      this.servico.message('UF é obrigatório!');
+      return false;
+    }
+    if (!this.imovel.cep) {
+      this.servico.message('CEP é obrigatório!');
+      return false;
+    }
+    if (!this.imovel.tipo) {
+      this.servico.message('Tipo é obrigatório!');
+      return false;
+    }
+    if (!this.imovel.descricao) {
+      this.servico.message('Descrição é obrigatória!');
+      return false;
+    }
+    if (this.imovel.valor <= 0) {
+      this.servico.message('Valor deve ser maior que zero!');
+      return false;
+    }
+    return true;
+  }
+
   cadastrarImovel(): void {
+    if (!this.validarCampos()) {
+      return;
+    }
+
     this.servico.cadastrar(this.imovel).subscribe({
       next: (response) => {
         this.servico.message('Imóvel cadastrado com sucesso!');

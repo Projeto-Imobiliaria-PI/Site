@@ -6,7 +6,7 @@
     <h1>Imobiliária</h1>
   </span>
 
-  <button (click)="logout()" class="novo mat-elevation-z5" mat-raised-button color="warn">
+  <button *ngIf="isLoggedIn" (click)="logout()" class="novo mat-elevation-z5" mat-raised-button color="warn">
     Deslogar
   </button>
 </mat-toolbar>
