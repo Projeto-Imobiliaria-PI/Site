@@ -82,4 +82,8 @@ export class VisualizarVendedoresComponent implements OnInit {
     }
   }
 
+  formatarData(data: Date): string {
+    const date = new Date(data);
+    return date.toLocaleDateString('pt-BR');
+  }
 }

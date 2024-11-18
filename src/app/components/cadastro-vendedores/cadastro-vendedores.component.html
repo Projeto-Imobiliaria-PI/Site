@@ -8,7 +8,7 @@
 
     <mat-form-field class="cpf">
       <mat-label>CPF</mat-label>
-      <input matInput size="60" [(ngModel)]="vendedor.cpf" name="cpf">
+      <input matInput size="60" type="number" [(ngModel)]="vendedor.cpf" name="cpf">
     </mat-form-field>
 
     <mat-form-field class="area">
@@ -32,13 +32,7 @@
       <mat-datepicker #dp3></mat-datepicker>
     </mat-form-field>
 
-    <mat-form-field class="situacao">
-      <mat-label>Situação</mat-label>
-      <mat-select [(ngModel)]="vendedor.ativo" name="situacao">
-        <mat-option [value]="true">Ativo</mat-option>
-        <mat-option [value]="false">Inativo</mat-option>
-      </mat-select>
-    </mat-form-field>
+
   </div>
 
   <div class="botoes">

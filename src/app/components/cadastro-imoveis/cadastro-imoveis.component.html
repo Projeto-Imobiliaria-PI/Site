@@ -57,14 +57,6 @@
       <mat-label>Valor</mat-label>
       <input [(ngModel)]="imovel.valor" matInput type="number" name="valor"/>
     </mat-form-field>
-
-    <mat-form-field class="disponivel">
-      <mat-label>Disponibilidade</mat-label>
-      <mat-select [(ngModel)]="imovel.disponivel" name="disponivel">
-        <mat-option [value]="true">Disponível</mat-option>
-        <mat-option [value]="false">Indisponível</mat-option>
-      </mat-select>
-    </mat-form-field>
   </div>
 
   <div class="botoes">
